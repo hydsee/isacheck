@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f0e8">
+<title>이사체크 | 날짜별 이사 준비</title>
+<style>
+:root{--bg:#f5f0e8;--paper:#fffdf9;--ink:#302820;--muted:#7c7164;--line:#e7ded2;--accent:#88745d;--dark:#65513d;--pale:#eee5d8;--green:#54745b;--shadow:0 8px 24px rgba(67,49,31,.06);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);background:radial-gradient(circle at top left,rgba(232,218,198,.45),transparent 34rem),var(--bg);min-height:100vh}button,input{font:inherit}button,a{touch-action:manipulation}button{cursor:pointer}.app{width:min(100% - 24px,820px);margin:auto;padding:22px 0 44px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:850;font-size:1.1rem;letter-spacing:-.04em}.brandmark{display:grid;place-items:center;width:40px;height:40px;border-radius:14px;background:var(--pale);color:var(--dark);font-size:1.3rem}.saved{font-size:.76rem;color:var(--muted)}.hero,.panel,.guides{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}.hero{padding:clamp(20px,5vw,34px);margin-bottom:16px}.eyebrow{font-size:.72rem;letter-spacing:.14em;font-weight:850;color:var(--accent);margin:0 0 10px}h1{font-size:clamp(1.8rem,6vw,2.55rem);line-height:1.16;letter-spacing:-.06em;margin:0}.intro{color:var(--muted);line-height:1.7;font-size:.92rem;margin:12px 0 22px}.progresshead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px;font-size:.88rem;font-weight:750}.percent{font-size:1.15rem;color:var(--dark);font-variant-numeric:tabular-nums}.track{height:9px;background:#eee7dd;border-radius:99px;overflow:hidden}.fill{height:100%;width:0;background:linear-gradient(90deg,#9e8a70,#6e5a43);border-radius:inherit;transition:width .2s}.summary{font-size:.78rem;color:var(--muted);margin-top:9px}.chapter-nav{display:flex;gap:8px;overflow-x:auto;padding:2px 1px 10px;margin-bottom:8px;scrollbar-width:thin}.chapter{flex:0 0 132px;text-align:left;padding:13px 12px;border:1px solid var(--line);border-radius:16px;background:rgba(255,253,249,.8);color:var(--muted)}.chapter[aria-selected=true]{background:var(--pale);border-color:#b7a58e;color:var(--dark)}.chapter .date{display:block;font-size:.72rem;font-weight:800;margin-bottom:6px}.chapter .name{display:block;font-size:.88rem;font-weight:800;line-height:1.3}.chapter .count{display:block;font-size:.72rem;margin-top:7px}.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}.panel,.guides{padding:clamp(16px,4vw,24px)}.sectionhead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.sectionhead h2{font-size:1.3rem;letter-spacing:-.04em;margin:0}.sectiondesc{font-size:.85rem;color:var(--muted);line-height:1.65;margin:9px 0 18px}.pill{white-space:nowrap;background:var(--pale);color:var(--dark);border-radius:999px;padding:7px 10px;font-size:.76rem;font-weight:800}.list{display:grid;gap:9px}.item{display:flex;align-items:flex-start;gap:11px;padding:13px 12px;border:1px solid var(--line);border-radius:15px;background:#fffefa;cursor:pointer}.item.done{background:#f7f4ee}.item input{position:absolute;opacity:0;width:1px;height:1px}.tick{flex:0 0 22px;width:22px;height:22px;border:1.5px solid #c6b9a8;border-radius:7px;display:grid;place-items:center;background:white;color:white;margin-top:1px}.item input:checked+.tick{background:var(--green);border-color:var(--green)}.item input:checked+.tick:after{content:"✓";font-weight:900;font-size:14px}.item input:focus-visible+.tick{outline:3px solid #c9b79d;outline-offset:3px}.copy{flex:1;min-width:0}.itemtitle{display:block;font-weight:760;font-size:.91rem;line-height:1.5}.itemnote{display:block;color:var(--muted);font-size:.79rem;line-height:1.6;margin-top:4px}.done .itemtitle{color:#82796d;text-decoration:line-through}.actions{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.btn{border:0;border-radius:12px;padding:11px 14px;font-size:.82rem;font-weight:750}.btn.subtle{background:transparent;color:var(--muted)}.btn.subtle:hover{background:#f2ece3}.btn.primary{background:var(--dark);color:white}.guides h3{margin:0 0 5px;font-size:1.08rem;letter-spacing:-.03em}.guideintro{margin:0 0 14px;color:var(--muted);font-size:.81rem;line-height:1.6}.guide{padding:13px 0;border-top:1px solid var(--line)}.guide:first-of-type{border-top:0}.guide strong{display:block;font-size:.86rem;margin-bottom:5px}.guide p{font-size:.79rem;color:var(--muted);line-height:1.65;margin:0 0 8px}.links{display:flex;gap:7px;flex-wrap:wrap}.links a{display:inline-block;text-decoration:none;color:var(--dark);background:var(--pale);border:1px solid #e4d8c7;border-radius:9px;padding:7px 9px;font-size:.76rem;font-weight:750}.links a:hover{text-decoration:underline}.notice{font-size:.75rem;color:var(--muted);line-height:1.7;margin:15px 3px 0}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,12px);opacity:0;pointer-events:none;background:#302820;color:white;padding:11px 15px;border-radius:999px;font-size:.82rem;transition:.2s;max-width:calc(100vw - 24px);text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}@media(min-width:760px){.layout{grid-template-columns:minmax(0,1.2fr) minmax(250px,.8fr);align-items:start}.guides{position:sticky;top:12px}}@media(max-width:430px){.app{width:min(100% - 18px,820px);padding-top:14px}.hero{border-radius:20px}.chapter{flex-basis:118px;padding:12px 10px}.panel,.guides{border-radius:20px}.saved{max-width:115px;text-align:right}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="top"><div class="brand"><span class="brandmark" aria-hidden="true">⌂</span><span>이사체크</span></div><span class="saved" id="saveStatus" aria-live="polite">이 기기에 자동 저장</span></header>
+<section class="hero">
+<p class="eyebrow">MOVING DAY, MADE EASIER</p>
+<h1>이사 준비,<br>날짜별로 차근차근.</h1>
+<p class="intro">한 달 전부터 이사 당일까지, 필요한 일을 놓치지 않도록 확인해요.<br>체크 기록은 현재 브라우저에 자동 저장돼요.</p>
+<div class="progresshead"><span>전체 준비 진행률</span><span class="percent" id="overallPercent">0%</span></div>
+<div class="track" id="overallBar" role="progressbar" aria-label="전체 준비 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="fill" id="overallFill"></div></div>
+<div class="summary" id="overallSummary">전체 0개 중 0개 완료</div>
+</section>
+<nav class="chapter-nav" role="tablist" aria-label="이사 날짜별 챕터">
+<button class="chapter" role="tab" aria-selected="true" aria-controls="taskPanel" id="tab-month" data-key="month"><span class="date">D-30</span><span class="name">한 달 전</span><span class="count" id="count-month">0/0 완료</span></button>
+<button class="chapter" role="tab" aria-selected="false" aria-controls="taskPanel" id="tab-twoWeeks" data-key="twoWeeks"><span class="date">D-14</span><span class="name">2주 전</span><span class="count" id="count-twoWeeks">0/0 완료</span></button>
+<button class="chapter" role="tab" aria-selected="false" aria-controls="taskPanel" id="tab-week" data-key="week"><span class="date">D-7</span><span class="name">1주 전</span><span class="count" id="count-week">0/0 완료</span></button>
+<button class="chapter" role="tab" aria-selected="false" aria-controls="taskPanel" id="tab-threeDays" data-key="threeDays"><span class="date">D-3</span><span class="name">3일 전</span><span class="count" id="count-threeDays">0/0 완료</span></button>
+<button class="chapter" role="tab" aria-selected="false" aria-controls="taskPanel" id="tab-day" data-key="day"><span class="date">D-DAY</span><span class="name">이사 당일</span><span class="count" id="count-day">0/0 완료</span></button>
+</nav>
+<div class="layout">
+<section class="panel" id="taskPanel" role="tabpanel" aria-labelledby="tab-month">
+<div class="sectionhead"><h2 id="chapterTitle">한 달 전</h2><span class="pill" id="chapterPercent">0% 완료</span></div>
+<p class="sectiondesc" id="chapterDescription">이사 계획을 세우고 큰 일정과 비용을 먼저 정리해요.</p>
+<div class="list" id="taskList"></div>
+<div class="actions"><button class="btn subtle" type="button" id="resetChapter">이 챕터 초기화</button><button class="btn primary" type="button" id="nextChapter">다음 챕터 →</button></div>
+</section>
+<aside class="guides">
+<h3>주의사항 &amp; 참고 링크</h3>
+<p class="guideintro" id="guideIntro">예약·신청이 필요한 서비스는 날짜를 여유 있게 잡아 주세요.</p>
+<div id="guideList"></div>
+</aside>
+</div>
+<p class="notice">안내는 일반적인 이사 준비 참고용입니다. 서비스 가능 지역·대상·수수료·처리 기간은 바뀔 수 있으니 신청 전 공식 사이트에서 최신 조건을 확인하세요. 전입신고는 원칙적으로 전입한 날부터 14일 이내에 해야 하며, 보증금 보호를 위해 전입신고·확정일자 관련 절차는 본인의 계약 상황에 맞게 가능한 한 신속히 확인하세요.</p>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+"use strict";
+const STORE = "isacheck-date-v2";
+const chapters = {
+ month: {
+  title:"한 달 전", desc:"이사 계획을 세우고 큰 일정과 비용을 먼저 정리해요.",
+  tasks:[
+   ["이사할 집 답사하기","가구 크기, 엘리베이터, 주차·반입 동선을 확인해요."],
+   ["가구·가전 배치 미리 구상하기","문·복도 폭과 콘센트 위치, 냉장고·세탁기 설치 공간을 재요."],
+   ["이사업체 최소 3곳 견적 비교하기","방문 견적 여부, 작업 인원, 사다리차, 추가요금·보험·파손 처리 조건을 같은 기준으로 비교해요."],
+   ["불필요한 물건 분류하기","재사용·기부·판매·폐기할 물건을 나눠요."],
+   ["폐가전 무상수거 대상 확인 및 예약하기","냉장고·세탁기 등 대상 품목과 수거 가능 조건을 공식 예약처에서 확인해요."],
+   ["대형 가구 폐기 방법 확인하기","가구는 폐가전 무상수거 대상이 아닐 수 있어요. 거주지 구청·시청의 대형폐기물 신고 방법을 확인해요."]
+  ],
+  guides:[
+   ["이사업체 견적 비교","최소 3곳에 같은 이사 조건을 전달해 비교하세요. 견적서에 포함된 작업과 추가비용 조건을 확인하고, 계약 내용은 문자·서면으로 남겨 두세요.",[["소비자원 이사 관련 정보","https://www.kca.go.kr/"],["1372 소비자상담센터","https://www.ccn.go.kr/"]]],
+   ["폐가전 무상방문수거","대상 가전과 단독 수거 가능 여부, 소형가전 수량 조건을 확인하고 예약하세요. 가구·일반 폐기물은 별도 처리 대상일 수 있어요.",[["폐가전 수거 예약","https://15990903.or.kr/portal/main/main.do"]]],
+   ["무료수거 주의사항","무료수거 대상이 아닌 가구·생활폐기물은 거주지 시·군·구의 대형폐기물 배출신고를 이용하세요. 품목·수수료·배출일은 지역마다 다릅니다.",[["정부24","https://www.gov.kr/"]]]
+  ]
+ },
+ twoWeeks: {
+  title:"2주 전", desc:"주소 변경과 이사 관련 신청을 시작해요.",
+  tasks:[
+   ["은행·신용카드·보험 등 주소 변경 신청하기","KT무빙의 제휴사 목록을 확인하고, 목록에 없는 금융사·보험사는 직접 변경해요."],
+   ["새집 입주 일정과 관리사무소에 연락하기","이사 시간, 엘리베이터 예약, 차량 등록, 입주증 발급 절차를 확인해요."],
+   ["인터넷·전화·케이블TV 이전 설치 예약하기","현재 통신사에 이전 가능 날짜, 설치비, 약정·장비 반납 조건을 확인해요."],
+   ["도시가스 전출·전입 예약하기","지역 도시가스 회사에 기존 집 중지·정산과 새집 연결 일정을 각각 확인해요."],
+   ["가전·가구 배송 일정 조정하기","새집 출입 가능 시간과 엘리베이터·주차 조건을 배송 업체에 알려요."]
+  ],
+  guides:[
+   ["주소변경 원클릭 서비스","KT무빙은 제휴된 거래 회사에 주소 변경을 신청하는 무료 서비스입니다. 모든 회사가 포함되는 것은 아니므로 처리 결과를 확인하고 누락된 곳은 직접 변경하세요.",[["KT무빙 주소변경","https://www.ktmoving.com/"]]],
+   ["도시가스 전출·전입","도시가스 공급사는 지역별로 다릅니다. 기존 주소와 새 주소의 공급사를 각각 확인하고 방문 예약을 하세요. 임의로 가스 설비를 분리하지 마세요.",[["한국가스공사 도시가스사 안내","https://www.kogas.or.kr/site/koGas/1020408040000"]]],
+   ["통신사 이전 설치","사용 중인 통신사 공식 앱·홈페이지 또는 고객센터에서 신청하세요. 설치 가능 날짜와 이전 설치비, 임대 장비 반납을 확인하세요.",[["KT","https://www.kt.com/"],["SK브로드밴드","https://www.bworld.co.kr/"],["LG유플러스","https://www.lguplus.com/"]]]
+  ]
+ },
+ week: {
+  title:"1주 전", desc:"우편물, 공과금, 자동이체와 귀중품을 정리해요.",
+  tasks:[
+   ["우체국 주거이전 우편물 전송서비스 신청하기","인터넷우체국에서 신청 가능 여부, 적용 지역·기간·수수료를 확인해요."],
+   ["각종 공과금·관리비 납부 내역 확인하기","전기·수도·가스·관리비의 납부 기준일과 마지막 정산 방법을 확인해요."],
+   ["자동이체 해지 또는 주소 변경 필요 여부 확인하기","최종 요금이 청구되기 전에 무조건 해지하지 말고, 정산·미납 여부를 확인한 뒤 처리해요."],
+   ["은행 이체 한도와 인증 수단 확인하기","큰 금액을 이체할 예정이면 1일·1회 한도와 OTP·인증서 등을 미리 확인해요. 한도 변경은 금융사 정책과 추가 인증에 따라 달라요."],
+   ["귀금속·현금·중요 서류 따로 보관하기","이삿짐과 섞이지 않게 직접 휴대하고, 현금을 차량에 장시간 방치하지 마세요."],
+   ["도시가스·인터넷 이전 예약 재확인하기","예약일과 방문 시간, 현장 연락처를 다시 확인해요."],
+   ["이사 당일 연락처·계약서·사진 백업하기","이사업체, 집주인, 관리사무소 연락처와 계약서·하자 사진을 쉽게 찾을 수 있게 준비해요."]
+  ],
+  guides:[
+   ["우편물 주거이전 서비스","인터넷우체국에서 '주거이전서비스'를 검색해 신청 조건을 확인하세요. 서비스 적용 범위·기간·수수료는 주소와 신청 조건에 따라 달라질 수 있으니 신청 화면에서 확인하세요.",[["인터넷우체국","https://www.epost.go.kr/"]]],
+   ["공과금 정산 준비","전기·수도·가스는 공급사와 지역에 따라 정산 방식이 달라요. 이사 당일 계량기 수치를 사진으로 남기고 고객번호·주소를 준비하면 문의가 수월합니다.",[["한전ON","https://online.kepco.co.kr/"],["한국가스공사 도시가스사 안내","https://www.kogas.or.kr/site/koGas/1020408040000"]]],
+   ["이체 한도·귀중품","이체 한도는 은행 앱의 이체/보안 설정 또는 고객센터에서 확인하세요. 비밀번호나 인증정보를 이사 업체와 공유하지 말고 귀중품은 직접 관리하세요.",[["금융감독원","https://www.fss.or.kr/"]]]
+  ]
+ },
+ threeDays: {
+  title:"3일 전", desc:"냉장고와 세탁물을 정리하고 이사 동선을 마무리해요.",
+  tasks:[
+   ["냉장고 식품과 냉동식품 정리하기","남은 식품을 줄이고 냉장고 운반 전 전원 차단·물기 처리 방법은 제조사 안내를 확인해요."],
+   ["세탁물·침구 정리하기","세탁을 마무리하고 완전히 건조한 뒤 포장해요."],
+   ["짐에 방 이름·내용물 표시하기","깨지기 쉬운 물건과 먼저 꺼낼 물건을 구분해요."],
+   ["귀중품·약·충전기·하루치 생필품 따로 챙기기","이삿짐 트럭에 싣지 않고 직접 휴대할 가방을 준비해요."],
+   ["이사업체와 일정·추가비용 최종 확인하기","출발 시간, 주소, 주차·엘리베이터, 사다리차 필요 여부를 재확인해요."]
+  ],
+  guides:[
+   ["냉장고·가전 운반","제품마다 운반·재가동 지침이 다를 수 있으므로 제조사 설명서를 확인하세요. 세탁기 운반 볼트 등 별도 준비물이 필요한지도 확인해요."],
+   ["이사 당일 필수 가방","신분증, 계약서, 휴대폰·충전기, 약, 물, 귀중품, 열쇠·도어락 안내를 따로 챙기면 이삿짐 속에서 찾지 않아도 됩니다."]
+  ]
+ },
+ day: {
+  title:"이사 당일", desc:"계량기·짐 상태를 기록하고 입주 절차를 확인해요.",
+  tasks:[
+   ["기존 집 전기·가스·수도·관리비 정산 확인하기","계량기 수치와 정산 영수증을 보관하고, 관리비는 관리사무소에 정산 방법을 확인해요."],
+   ["장기수선충당금 정산 확인하기","공동주택 임차인이라면 관리사무소에 납부 내역과 반환 대상 여부를 문의하고 임대인과 정산하세요. 계약·건물 조건을 확인해야 해요."],
+   ["이삿짐 수량·분실·파손 확인하기","짐을 내릴 때 큰 가구와 가전, 박스 수를 확인하고 파손은 즉시 사진으로 남겨 이사업체에 알리세요."],
+   ["새집의 계량기·하자 상태 사진 찍기","전기·수도·가스 계량기와 벽·바닥·창문·수압 등 상태를 기록해요."],
+   ["전입신고 하기","정부24 온라인 또는 새 주소지 주민센터에서 신청하세요. 원칙적으로 전입한 날부터 14일 이내 신고해야 합니다."],
+   ["임대차계약 확정일자 절차 확인하기","계약서와 본인 상황에 맞는 신청 방법을 확인하세요. 전입신고와 확정일자는 별도 절차일 수 있으므로 각각 완료 여부를 확인해요."],
+   ["입주증·주차증·공동현관 카드·열쇠 받기","관리사무소에서 발급 대상과 반납·분실 규정을 확인해요."],
+   ["도어락 비밀번호 변경하기","기존 비밀번호를 바꾸고 출입카드·임시 비밀번호 등록 여부도 확인해요."],
+   ["전기·가스·수도·인터넷 사용 가능 여부 확인하기","공급·이전 신청이 완료됐는지 확인하고, 이상이 있으면 해당 공급사나 관리사무소에 문의해요."]
+  ],
+  guides:[
+   ["전입신고","정부24에서 '전입신고'를 검색해 온라인 신청하거나 주민센터를 방문할 수 있습니다. 온라인 신청은 본인 신청 등 자격 요건이 있으니 공식 안내를 확인하세요.",[["정부24 전입신고 안내","https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=13100000016&HighCtgCD=&tp_seq=01"]]],
+   ["확정일자","인터넷등기소에서 전자확정일자 신청 관련 안내를 확인하거나 관할 기관에 문의하세요. 온라인 신청 가능 여부와 준비 서류는 계약 유형·신청자 상황에 따라 확인해야 합니다.",[["대한민국 법원 인터넷등기소","https://www.iros.go.kr/"]]],
+   ["전기·가스·관리비 정산","전기는 한전ON 또는 한전 고객센터(국번 없이 123), 가스는 지역 도시가스 회사, 수도·관리비는 해당 지자체 수도사업소나 관리사무소에 확인하세요. 고객번호와 계량기 사진을 준비하면 편리합니다.",[["한전ON","https://online.kepco.co.kr/"],["지역별 도시가스사","https://www.kogas.or.kr/site/koGas/1020408040000"]]],
+   ["장기수선충당금·입주 카드","장기수선충당금 반환 대상과 금액은 관리사무소 납부 내역, 임대차 계약 및 적용 조건을 확인해 임대인과 정산하세요. 주차·출입카드는 분실 수수료와 반납 규정을 확인하세요."]
+  ]
+ }
+};
+let active="month", state=load();
+function blank(){const o={};Object.keys(chapters).forEach(k=>o[k]=[]);return o}
+function load(){try{const x=JSON.parse(localStorage.getItem(STORE)||"{}"),o=blank();Object.keys(chapters).forEach(k=>{if(Array.isArray(x[k]))o[k]=x[k].filter(i=>Number.isInteger(i)&&i>=0&&i<chapters[k].tasks.length)});return o}catch(e){return blank()}}
+function save(){const el=document.getElementById("saveStatus");try{localStorage.setItem(STORE,JSON.stringify(state));el.textContent="✓ 이 기기에 자동 저장됨"}catch(e){el.textContent="자동 저장을 사용할 수 없음"}}
+let toastTimer;
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2300)}
+function counts(k){return{done:state[k].length,total:chapters[k].tasks.length}}
+function renderCounts(){let d=0,t=0;Object.keys(chapters).forEach(k=>{const c=counts(k);d+=c.done;t+=c.total;document.getElementById("count-"+k).textContent=`${c.done}/${c.total} 완료`});const pct=t?Math.round(d/t*100):0;document.getElementById("overallPercent").textContent=pct+"%";document.getElementById("overallSummary").textContent=`전체 ${t}개 중 ${d}개 완료`;document.getElementById("overallFill").style.width=pct+"%";document.getElementById("overallBar").setAttribute("aria-valuenow",pct)}
+function renderGuides(){const el=document.getElementById("guideList");el.replaceChildren();chapters[active].guides.forEach(g=>{const box=document.createElement("div");box.className="guide";const title=document.createElement("strong");title.textContent=g[0];const p=document.createElement("p");p.textContent=g[1];box.append(title,p);if(g[2]&&g[2].length){const links=document.createElement("div");links.className="links";g[2].forEach(link=>{const a=document.createElement("a");a.href=link[1];a.target="_blank";a.rel="noopener noreferrer";a.textContent=link[0];links.append(a)});box.append(links)}el.append(box)})}
+function render(){const ch=chapters[active],c=counts(active),pct=c.total?Math.round(c.done/c.total*100):0;document.getElementById("chapterTitle").textContent=ch.title;document.getElementById("chapterDescription").textContent=ch.desc;document.getElementById("chapterPercent").textContent=pct+"% 완료";document.getElementById("taskPanel").setAttribute("aria-labelledby","tab-"+active);
+document.querySelectorAll(".chapter").forEach(b=>{const yes=b.dataset.key===active;b.setAttribute("aria-selected",String(yes));b.tabIndex=yes?0:-1});
+const list=document.getElementById("taskList");list.replaceChildren();ch.tasks.forEach((task,i)=>{const done=state[active].includes(i),label=document.createElement("label");label.className="item"+(done?" done":"");const input=document.createElement("input");input.type="checkbox";input.checked=done;input.setAttribute("aria-label",task[0]);input.addEventListener("change",()=>{const s=new Set(state[active]);input.checked?s.add(i):s.delete(i);state[active]=[...s].sort((a,b)=>a-b);save();renderCounts();render()});const tick=document.createElement("span");tick.className="tick";tick.setAttribute("aria-hidden","true");const copy=document.createElement("span");copy.className="copy";const title=document.createElement("span");title.className="itemtitle";title.textContent=task[0];const note=document.createElement("span");note.className="itemnote";note.textContent=task[1];copy.append(title,note);label.append(input,tick,copy);list.append(label)});
+const keys=Object.keys(chapters),next=keys[(keys.indexOf(active)+1)%keys.length];document.getElementById("nextChapter").textContent=next==="month"?"한 달 전으로 →":`다음: ${chapters[next].title} →`;document.getElementById("guideIntro").textContent=active==="day"?"정부·공급사 공식 안내를 확인하고, 정산 내역과 사진을 보관하세요.":"예약이 필요한 서비스는 여유 있게 신청하고, 대상·기간·수수료를 공식 사이트에서 확인하세요.";renderGuides()}
+function setActive(k){if(!chapters[k])return;active=k;renderCounts();render()}
+document.querySelectorAll(".chapter").forEach(b=>{b.addEventListener("click",()=>setActive(b.dataset.key));b.addEventListener("keydown",e=>{if(!["ArrowRight","ArrowLeft"].includes(e.key))return;e.preventDefault();const keys=Object.keys(chapters),i=keys.indexOf(active),next=keys[(i+(e.key==="ArrowRight"?1:-1)+keys.length)%keys.length];setActive(next);document.getElementById("tab-"+next).focus()})});
+document.getElementById("nextChapter").addEventListener("click",()=>{const keys=Object.keys(chapters);setActive(keys[(keys.indexOf(active)+1)%keys.length])});
+document.getElementById("resetChapter").addEventListener("click",()=>{if(!confirm(`'${chapters[active].title}' 체크를 모두 해제할까요?`))return;state[active]=[];save();renderCounts();render();toast("이 챕터 체크를 초기화했어요.")});
+renderCounts();render();
+})();
+</script>
+</body>
+</html>
